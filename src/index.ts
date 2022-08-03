@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import {initializeApp} from 'firebase-admin/app';
 import {MessageRouter} from './router/MessageRouter';
 import { ALLOW_ORIGIN } from './const';
+import { PostRouter } from './router';
 
 
 const app = express();
@@ -30,6 +31,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });
 app.use(MessageRouter);
+app.use(PostRouter);
 
 const port = parseInt(`${process.env.PORT}`) || 8080;
 
